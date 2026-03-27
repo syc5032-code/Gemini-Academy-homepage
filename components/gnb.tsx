@@ -34,9 +34,9 @@ export function GNB() {
             </Link>
 
             {/* Gemini Academy Logo - Absolute Center */}
-            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+            <Link href="/" className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
               <GeminiAcademyLogo className="text-2xl" starSize={28} />
-            </div>
+            </Link>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">

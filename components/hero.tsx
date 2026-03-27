@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight } from 'lucide-react';
+
 
 export function Hero() {
   return (
@@ -60,20 +60,13 @@ export function Hero() {
             />
           </div>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center gap-4 pt-6">
-            <Link
-              href="#programs"
-              className="inline-flex items-center justify-center px-8 py-3 bg-ja-blue-600 text-white font-medium rounded hover:bg-ja-blue-700 transition-colors"
-            >
-              프로그램 신청하기
-              <ArrowRight className="ml-2" size={18} />
-            </Link>
+          {/* CTA Button */}
+          <div className="flex items-center justify-center pt-6">
             <Link
               href="#academy"
-              className="inline-flex items-center px-8 py-3 text-gray-700 font-medium hover:text-ja-blue-600 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-3 bg-ja-blue-600 text-white font-medium rounded hover:bg-ja-blue-700 transition-colors"
             >
-              자세히 보기
+              Gemini Academy 알아보기 →
             </Link>
           </div>
         </div>
