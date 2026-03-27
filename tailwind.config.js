@@ -28,6 +28,16 @@ module.exports = {
         'google-yellow': '#fbbc04',
         'google-green': '#34a853',
       },
+      keyframes: {
+        'spin-pause': {
+          '0%': { transform: 'rotate(0deg)' },
+          '40%': { transform: 'rotate(360deg)' },
+          '100%': { transform: 'rotate(360deg)' },
+        },
+      },
+      animation: {
+        'spin-pause': 'spin-pause 3s ease-in-out infinite',
+      },
       borderRadius: {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
