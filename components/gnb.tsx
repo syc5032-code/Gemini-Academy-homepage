@@ -4,47 +4,39 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import { GeminiAcademyLogo } from './gemini-logo';
 
 export function GNB() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { label: '기관소개', href: '#academy' },
-    { label: '프로그램', href: '#programs' },
-    { label: '고객지원', href: '#support' },
+    { label: '연수소개', href: '#programs' },
     { label: '공지사항', href: '#notice' },
+    { label: '문의', href: '#contact' },
   ];
 
   return (
     <nav className="sticky top-0 z-50">
-      {/* Top Banner - Blue Bar */}
-      <div className="bg-ja-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-center h-9">
-            <Link
-              href="#programs"
-              className="text-white text-xs font-medium hover:text-white/80 transition-colors"
-            >
-              Gemini Academy 2기 모집 중 &mdash; 지금 신청하세요 &rarr;
-            </Link>
-          </div>
-        </div>
-      </div>
-
       {/* Main Navigation */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
-            {/* JA Korea Logo - Large */}
+          <div className="relative flex items-center justify-between h-20">
+            {/* JA Korea Logo - Left */}
             <Link href="/" className="flex items-center">
               <Image
                 src="/logos/ja-korea.png"
                 alt="JA Korea"
-                width={180}
-                height={60}
-                className="h-12 w-auto"
+                width={200}
+                height={70}
+                className="h-[4.5rem] w-auto"
               />
             </Link>
+
+            {/* Gemini Academy Logo - Absolute Center */}
+            <div className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+              <GeminiAcademyLogo className="text-2xl" starSize={28} />
+            </div>
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
@@ -57,12 +49,6 @@ export function GNB() {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="#programs"
-                className="px-5 py-2 bg-ja-blue-600 text-white text-sm font-medium rounded hover:bg-ja-blue-700 transition-colors"
-              >
-                신청하기
-              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -91,13 +77,6 @@ export function GNB() {
                   {item.label}
                 </Link>
               ))}
-              <Link
-                href="#programs"
-                className="block px-4 py-2 bg-ja-blue-600 text-white text-sm font-medium text-center rounded hover:bg-ja-blue-700 transition-colors"
-                onClick={() => setIsOpen(false)}
-              >
-                신청하기
-              </Link>
             </div>
           )}
         </div>

@@ -13,7 +13,7 @@ function GeminiStar({ className = '', size = 24 }: { className?: string; size?: 
     >
       <defs>
         <clipPath id={id}>
-          <path d="M50 0 C53 35, 65 47, 100 50 C65 53, 53 65, 50 100 C47 65, 35 53, 0 50 C35 47, 47 35, 50 0Z" />
+          <path d="M50 0 C58 20, 80 42, 100 50 C80 58, 58 80, 50 100 C42 80, 20 58, 0 50 C20 42, 42 20, 50 0Z" />
         </clipPath>
       </defs>
       <foreignObject width="100" height="100" clipPath={`url(#${id})`}>
@@ -21,12 +21,14 @@ function GeminiStar({ className = '', size = 24 }: { className?: string; size?: 
           style={{
             width: '100%',
             height: '100%',
-            background: `conic-gradient(from 180deg at 50% 50%,
-              #4285F4 0deg,
-              #EA4335 90deg,
-              #FBBC05 180deg,
-              #34A853 270deg,
-              #4285F4 360deg
+            background: `conic-gradient(from 0deg at 50% 50%,
+              #EA4335 0deg,
+              #4285F4 90deg,
+              #4285F4 120deg,
+              #34A853 210deg,
+              #FBBC05 270deg,
+              #F9AB00 300deg,
+              #EA4335 360deg
             )`,
           }}
         />

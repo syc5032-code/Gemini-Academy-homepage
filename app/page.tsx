@@ -11,7 +11,7 @@ export default function Home() {
       <section id="academy" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900">
-            아카데미 소개
+            기관소개
           </h2>
           <p className="text-center text-gray-600 mt-4">Coming Soon</p>
         </div>
@@ -20,16 +20,25 @@ export default function Home() {
       <section id="programs" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900">
-            프로그램
+            연수소개
           </h2>
           <p className="text-center text-gray-600 mt-4">Coming Soon</p>
         </div>
       </section>
 
-      <section id="support" className="py-20">
+      <section id="notice" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-gray-900">
-            고객지원
+            공지사항
+          </h2>
+          <p className="text-center text-gray-600 mt-4">Coming Soon</p>
+        </div>
+      </section>
+
+      <section id="contact" className="py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-gray-900">
+            문의
           </h2>
           <p className="text-center text-gray-600 mt-4">Coming Soon</p>
         </div>
