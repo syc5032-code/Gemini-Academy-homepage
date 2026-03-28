@@ -20,38 +20,38 @@ export function GNB() {
       {/* Main Navigation */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-14 md:h-20">
+          <div className="flex items-center justify-between h-18 md:h-28">
             {/* JA Korea Logo - Left */}
             <Link href="/" className="flex items-center shrink-0">
               <Image
                 src="/logos/ja-korea.png"
                 alt="JA Korea"
-                width={200}
-                height={70}
-                className="h-8 md:h-[4.5rem] w-auto"
+                width={250}
+                height={90}
+                className="h-12 md:h-[6.5rem] w-auto"
               />
             </Link>
 
             {/* Gemini Academy Logo - Center */}
-            <Link href="/" className="flex items-center gap-1 md:gap-2">
+            <Link href="/" className="flex items-center gap-2 md:gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/logos/gemini-star-clean.png"
                 alt=""
-                className="h-4 w-4 md:h-7 md:w-7 animate-gemini-spin"
+                className="h-6 w-6 md:h-11 md:w-11 animate-gemini-spin"
               />
-              <span className="text-sm md:text-2xl font-semibold tracking-tight text-gray-800 whitespace-nowrap">
+              <span className="text-lg md:text-4xl font-semibold tracking-tight text-gray-800 whitespace-nowrap">
                 Gemini Academy
               </span>
             </Link>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            <div className="hidden md:flex items-center space-x-10">
               {navItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="text-sm text-gray-700 hover:text-ja-blue-600 font-medium transition-colors"
+                  className="text-lg text-gray-700 hover:text-ja-blue-600 font-medium transition-colors"
                 >
                   {item.label}
                 </Link>

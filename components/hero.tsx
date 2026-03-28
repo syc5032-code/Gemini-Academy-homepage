@@ -29,15 +29,13 @@ export function Hero() {
           </div>
 
           {/* Description */}
-          <div className="max-w-2xl space-y-3 sm:space-y-4">
+          <div className="max-w-3xl space-y-3 sm:space-y-4 px-2">
             <p className="text-sm sm:text-base lg:text-lg text-gray-700 leading-relaxed">
-              JA Korea는 Google for Education의 공식 파트너 기관으로
-              <br className="hidden sm:inline" />{' '}
+              JA Korea는 Google for Education의 공식 파트너 기관으로<br />
               Gemini Academy를 운영하고 있습니다.
             </p>
             <p className="text-xs sm:text-sm lg:text-base text-gray-500 leading-relaxed">
-              AI 시대를 준비하는 교사와 대학생을 위한
-              <br className="hidden sm:inline" />{' '}
+              AI 시대를 준비하는 교사와 대학생을 위한<br />
               체계적인 AI 교육 연수 프로그램에 참여하세요.
             </p>
           </div>
