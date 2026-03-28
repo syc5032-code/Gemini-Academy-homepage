@@ -8,11 +8,14 @@ import { useState } from 'react';
 export function GNB() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const navItems = [
-    { label: '기관소개', href: '#academy' },
-    { label: '연수소개', href: '#programs' },
-    { label: '공지사항', href: '#notice' },
-    { label: '문의', href: '#contact' },
+  const [geminiOpen, setGeminiOpen] = useState(false);
+
+  const geminiSubItems = [
+    { label: 'Gemini Academy 소개', href: '#ga-intro' },
+    { label: 'History', href: '#ga-history' },
+    { label: 'Overview', href: '#ga-overview' },
+    { label: '연수종류', href: '#ga-programs' },
+    { label: '연수신청', href: '#ga-apply' },
   ];
 
   return (
@@ -47,15 +50,46 @@ export function GNB() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-10">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-lg text-gray-700 hover:text-ja-blue-600 font-medium transition-colors"
-                >
-                  {item.label}
-                </Link>
-              ))}
+              <Link
+                href="#academy"
+                className="text-lg text-gray-700 hover:text-ja-blue-600 font-medium transition-colors"
+              >
+                JA Korea
+              </Link>
+
+              {/* Gemini Academy Dropdown */}
+              <div
+                className="relative"
+                onMouseEnter={() => setGeminiOpen(true)}
+                onMouseLeave={() => setGeminiOpen(false)}
+              >
+                <button className="text-lg text-gray-700 hover:text-ja-blue-600 font-medium transition-colors">
+                  Gemini Academy
+                </button>
+                {geminiOpen && (
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2">
+                    <div className="bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-[200px]">
+                      {geminiSubItems.map((item) => (
+                        <Link
+                          key={item.href}
+                          href={item.href}
+                          className="block px-5 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-ja-blue-600 transition-colors"
+                          onClick={() => setGeminiOpen(false)}
+                        >
+                          {item.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+
+              <Link
+                href="#contact"
+                className="text-lg text-gray-700 hover:text-ja-blue-600 font-medium transition-colors"
+              >
+                문의
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -73,17 +107,34 @@ export function GNB() {
 
           {/* Mobile Navigation */}
           {isOpen && (
-            <div className="md:hidden border-t border-gray-200 py-3 space-y-2">
-              {navItems.map((item) => (
+            <div className="md:hidden border-t border-gray-200 py-3 space-y-1">
+              <Link
+                href="#academy"
+                className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                JA Korea
+              </Link>
+              <div className="px-4 py-2 text-sm font-medium text-gray-700">
+                Gemini Academy
+              </div>
+              {geminiSubItems.map((item) => (
                 <Link
                   key={item.href}
                   href={item.href}
-                  className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 rounded transition-colors"
+                  className="block px-8 py-1.5 text-sm text-gray-500 hover:bg-gray-50 rounded transition-colors"
                   onClick={() => setIsOpen(false)}
                 >
                   {item.label}
                 </Link>
               ))}
+              <Link
+                href="#contact"
+                className="block px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50 rounded transition-colors"
+                onClick={() => setIsOpen(false)}
+              >
+                문의
+              </Link>
             </div>
           )}
         </div>
