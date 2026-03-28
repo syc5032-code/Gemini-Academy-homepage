@@ -9,7 +9,7 @@ function GeminiStar({ className = '', size = 24 }: { className?: string; size?: 
       viewBox="0 0 100 100"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
-      className={`animate-spin-pause ${className}`}
+      className={className}
     >
       <defs>
         <clipPath id={id}>
@@ -48,7 +48,7 @@ export function GeminiAcademyLogo({
     <span className={`inline-flex items-center gap-1.5 ${className}`}>
       <GeminiStar size={starSize} />
       <span className="font-semibold tracking-tight">
-        <span className="bg-gradient-to-r from-google-blue via-purple-500 to-[#d96570] bg-clip-text text-transparent">
+        <span className="bg-gradient-to-r from-[#4285F4] to-[#69B4FF] bg-clip-text text-transparent">
           Gemini
         </span>
       </span>

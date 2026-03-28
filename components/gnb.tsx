@@ -4,7 +4,6 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
-import { GeminiAcademyLogo } from './gemini-logo';
 
 export function GNB() {
   const [isOpen, setIsOpen] = useState(false);
@@ -21,21 +20,29 @@ export function GNB() {
       {/* Main Navigation */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="relative flex items-center justify-between h-20">
+          <div className="flex items-center justify-between h-14 md:h-20">
             {/* JA Korea Logo - Left */}
-            <Link href="/" className="flex items-center">
+            <Link href="/" className="flex items-center shrink-0">
               <Image
                 src="/logos/ja-korea.png"
                 alt="JA Korea"
                 width={200}
                 height={70}
-                className="h-[4.5rem] w-auto"
+                className="h-8 md:h-[4.5rem] w-auto"
               />
             </Link>
 
-            {/* Gemini Academy Logo - Absolute Center */}
-            <Link href="/" className="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-              <GeminiAcademyLogo className="text-2xl" starSize={28} />
+            {/* Gemini Academy Logo - Center */}
+            <Link href="/" className="flex items-center gap-1 md:gap-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logos/gemini-star-clean.png"
+                alt=""
+                className="h-4 w-4 md:h-7 md:w-7 animate-gemini-spin"
+              />
+              <span className="text-sm md:text-2xl font-semibold tracking-tight text-gray-800 whitespace-nowrap">
+                Gemini Academy
+              </span>
             </Link>
 
             {/* Desktop Navigation */}
@@ -57,9 +64,9 @@ export function GNB() {
               className="md:hidden p-2 hover:bg-gray-100 rounded transition-colors"
             >
               {isOpen ? (
-                <X size={22} className="text-gray-700" />
+                <X size={20} className="text-gray-700" />
               ) : (
-                <Menu size={22} className="text-gray-700" />
+                <Menu size={20} className="text-gray-700" />
               )}
             </button>
           </div>
