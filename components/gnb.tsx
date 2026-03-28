@@ -25,7 +25,7 @@ export function GNB() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-18 md:h-28">
             {/* JA Korea Logo - Left */}
-            <Link href="/" className="flex items-center shrink-0">
+            <a href="https://www.jakorea.org/" target="_blank" rel="noopener noreferrer" className="flex items-center shrink-0">
               <Image
                 src="/logos/ja-korea.png"
                 alt="JA Korea"
@@ -33,7 +33,7 @@ export function GNB() {
                 height={90}
                 className="h-12 md:h-[6.5rem] w-auto"
               />
-            </Link>
+            </a>
 
             {/* Gemini Academy Logo - Center */}
             <Link href="/" className="flex items-center gap-2 md:gap-3">
