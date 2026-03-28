@@ -52,11 +52,10 @@ export function Hero() {
 
           {/* Partnership Logos */}
           <div className="flex items-center justify-center space-x-4 sm:space-x-5 pt-2 sm:pt-4">
-            <Image
-              src="/logos/ja-korea.png"
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/logos/ja-korea-ci.svg"
               alt="JA Korea"
-              width={80}
-              height={80}
               className="h-10 sm:h-16 w-auto"
             />
             <div className="w-px h-8 sm:h-12 bg-gray-300" />

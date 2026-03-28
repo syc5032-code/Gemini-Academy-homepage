@@ -26,12 +26,11 @@ export function GNB() {
           <div className="flex items-center justify-between h-18 md:h-28">
             {/* JA Korea Logo - Left */}
             <a href="https://www.jakorea.org/" target="_blank" rel="noopener noreferrer" className="flex items-center shrink-0">
-              <Image
-                src="/logos/ja-korea.png"
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/logos/ja-korea-ci.svg"
                 alt="JA Korea"
-                width={250}
-                height={90}
-                className="h-12 md:h-[6.5rem] w-auto"
+                className="h-10 md:h-16 w-auto"
               />
             </a>
 
