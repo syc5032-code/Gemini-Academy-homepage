@@ -344,13 +344,12 @@ export default function Home() {
       {/* 찾아가는 연수 신청 */}
       <section id="ga-visit" className="py-20 bg-gray-50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-bold text-center mb-16">
-            <span className="text-3xl sm:text-4xl lg:text-5xl bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent block">
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
+            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
               Gemini Academy
             </span>
-            <span className="text-2xl sm:text-4xl lg:text-5xl text-gray-900 block mt-1">
-              찾아가는 연수 신청
-            </span>
+            <br />
+            <span className="text-gray-900">찾아가는 연수 신청</span>
           </h2>
 
           <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8">
