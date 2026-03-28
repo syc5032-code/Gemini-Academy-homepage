@@ -1,5 +1,6 @@
 import { GNB } from '@/components/gnb';
 import { Hero } from '@/components/hero';
+import { TrainingSchedule } from '@/components/training-schedule';
 
 export default function Home() {
   return (
@@ -96,7 +97,7 @@ export default function Home() {
             href="https://gemini.google.com"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#4285F4] hover:bg-[#3367D6] text-white font-semibold text-lg px-8 py-4 rounded-full transition-colors"
+            className="inline-flex items-center gap-2 bg-[#1A73E8] hover:bg-[#1557B0] text-white font-semibold text-lg px-8 py-4 rounded-full transition-colors"
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img src="/logos/gemini-star-clean.png" alt="" className="h-6 w-6" />
@@ -221,28 +222,137 @@ export default function Home() {
 
       <section id="ga-overview" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900">
-            Overview
+          {/* Title */}
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
+            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
+              Gemini Academy
+            </span>
+            {' '}
+            <span className="text-gray-900">Overview</span>
           </h2>
-          <p className="text-center text-gray-600 mt-4">Coming Soon</p>
+
+          {/* Stats Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+            {/* Teacher Trainers */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex items-center gap-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#4285F4]/10 to-[#A855F7]/10 rounded-xl flex items-center justify-center shrink-0">
+                <span className="text-3xl">🎓</span>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 mb-1">Gemini Academy Trainers 2024~2026</p>
+                <p className="text-base text-gray-600">누적 활동 강사 수</p>
+                <p className="text-4xl font-bold text-gray-900 mt-1">120<span className="text-2xl">명</span></p>
+              </div>
+            </div>
+
+            {/* Total Students */}
+            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex items-center gap-6">
+              <div className="w-16 h-16 bg-gradient-to-br from-[#4285F4]/10 to-[#A855F7]/10 rounded-xl flex items-center justify-center shrink-0">
+                <span className="text-3xl">📚</span>
+              </div>
+              <div>
+                <p className="text-sm text-gray-500 mb-1">Gemini Academy 2024~2025</p>
+                <p className="text-base text-gray-600">누적 수강생 수</p>
+                <p className="text-4xl font-bold text-gray-900 mt-1">20,140+<span className="text-2xl"> 명</span></p>
+              </div>
+            </div>
+          </div>
+
+          {/* Pie Chart Section */}
+          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-sm border border-gray-100 mb-16">
+            <h3 className="text-xl font-bold text-gray-900 text-center mb-8">수강생 구성 <span className="text-base font-normal text-gray-500">(2025년 기준)</span></h3>
+            <div className="flex flex-col md:flex-row items-center justify-center gap-12">
+              {/* Pie Chart (CSS) */}
+              <div className="relative w-64 h-64">
+                <div
+                  className="w-full h-full rounded-full"
+                  style={{
+                    background: 'conic-gradient(#FBBC04 0deg 18.9deg, #EA4335 18.9deg 36deg, #4285F4 36deg 360deg)',
+                  }}
+                />
+                <div className="absolute inset-8 bg-white rounded-full" />
+              </div>
+
+              {/* Legend */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded-full bg-[#4285F4] shrink-0" />
+                  <span className="text-gray-700 font-medium">Teachers</span>
+                  <span className="text-gray-500 ml-auto">10,471명 (85.6%)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded-full bg-[#FBBC04] shrink-0" />
+                  <span className="text-gray-700 font-medium">High School Students</span>
+                  <span className="text-gray-500 ml-auto">1,149명 (9.4%)</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="w-4 h-4 rounded-full bg-[#EA4335] shrink-0" />
+                  <span className="text-gray-700 font-medium">University Students</span>
+                  <span className="text-gray-500 ml-auto">618명 (5.0%)</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="ga-programs" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900">
-            연수종류
+          {/* Title */}
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
+            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
+              Gemini Academy
+            </span>
+            {' '}
+            <span className="text-gray-900">연수 구분</span>
           </h2>
-          <p className="text-center text-gray-600 mt-4">Coming Soon</p>
+
+          {/* Program Cards */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
+            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px]">
+              <p className="text-center text-gray-800 font-medium leading-relaxed">
+                Google Korea<br />방문 연수<br />
+                <span className="text-gray-500 text-sm">(교육청,<br />교육지원청 등)</span>
+              </p>
+            </div>
+            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px]">
+              <p className="text-center text-gray-800 font-medium leading-relaxed">
+                찾아가는 연수<br />
+                <span className="text-gray-500 text-sm">(전국 초, 중,<br />고등학교 교원)</span>
+              </p>
+            </div>
+            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px]">
+              <p className="text-center text-gray-800 font-medium leading-relaxed">
+                고용노동부<br />연계연수<br />
+                <span className="text-gray-500 text-sm">(전국 대학생)</span>
+              </p>
+            </div>
+            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px]">
+              <p className="text-center text-gray-800 font-medium leading-relaxed">
+                Gemini<br />Academy<br />Trainers<br />자체 모집 연수
+              </p>
+            </div>
+            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px] col-span-2 md:col-span-1">
+              <p className="text-center text-gray-800 font-medium leading-relaxed">
+                온라인 웨비나
+              </p>
+            </div>
+          </div>
         </div>
       </section>
 
       <section id="ga-apply" className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900">
-            연수신청
+          {/* Title */}
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
+            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
+              Gemini Academy
+            </span>
+            {' '}
+            <span className="text-gray-900">연수신청</span>
           </h2>
-          <p className="text-center text-gray-600 mt-4">Coming Soon</p>
+
+          <TrainingSchedule />
         </div>
       </section>
 
