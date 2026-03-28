@@ -11,7 +11,7 @@ export default function Home() {
       <section id="academy" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mission Card */}
-          <div className="bg-gradient-to-br from-[#0097A7] to-[#00838F] rounded-2xl p-10 lg:p-14 mb-16">
+          <div className="bg-gradient-to-br from-[#2EC4B6] to-[#26A69A] rounded-2xl p-10 lg:p-14 mb-16">
             <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
               JA Korea
             </h3>
@@ -42,7 +42,7 @@ export default function Home() {
               '개인 및 기업의 기부금을 투명하게 운영·관리하고 있습니다.',
             ].map((item, i) => (
               <div key={i} className="flex items-start gap-3">
-                <span className="text-[#0097A7] mt-1.5 shrink-0">●</span>
+                <span className="text-[#2EC4B6] mt-1.5 shrink-0">●</span>
                 <p className="text-gray-600 leading-relaxed">{item}</p>
               </div>
             ))}
@@ -107,10 +107,115 @@ export default function Home() {
 
       <section id="ga-history" className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900">
-            History
+          {/* Title */}
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
+            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
+              Gemini Academy
+            </span>
+            {' '}
+            <span className="text-gray-900">History with </span>
+            <span className="text-[#2EC4B6]">JA Korea</span>
           </h2>
-          <p className="text-center text-gray-600 mt-4">Coming Soon</p>
+
+          {/* Timeline */}
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-gray-200" />
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
+              {/* 2023.11 */}
+              <div className="relative flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full border-4 border-[#7C3AED] bg-white flex items-center justify-center z-10 mb-4">
+                  <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#4285F4] to-[#A855F7]" />
+                </div>
+                <span className="inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
+                  2023.11
+                </span>
+                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
+                  Bard Academy<br />운영
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2 w-full px-2">
+                  <li className="text-center leading-5">
+                    <span>·</span>
+                    교원 대상 프롬프트 작성 및 생성형 AI(현 Gemini) 사용법 교육
+                  </li>
+                </ul>
+              </div>
+
+              {/* 2024.01 */}
+              <div className="relative flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full border-4 border-[#7C3AED] bg-white flex items-center justify-center z-10 mb-4">
+                  <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#4285F4] to-[#A855F7]" />
+                </div>
+                <span className="inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
+                  2024.01
+                </span>
+                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
+                  교육박람회<br />런칭
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2 w-full px-2">
+                  <li className="text-center leading-5">
+                    <span>·</span>
+                    파일럿 성과 기반 프로그램 공식화
+                  </li>
+                  <li className="text-center leading-5">
+                    <span>·</span>
+                    교사 200여 명 대상 아카데미 소개
+                  </li>
+                </ul>
+              </div>
+
+              {/* 2024 ~ 2025 */}
+              <div className="relative flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full border-4 border-[#7C3AED] bg-white flex items-center justify-center z-10 mb-4">
+                  <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#4285F4] to-[#A855F7]" />
+                </div>
+                <span className="inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
+                  2024 ~ 2025
+                </span>
+                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
+                  Gemini 확산 및<br />강사단 운영
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2 w-full px-2">
+                  <li className="text-center leading-5">
+                    <span>·</span>
+                    누적 수혜 교사 약 2만 명 달성
+                  </li>
+                  <li className="text-center leading-5">
+                    <span>·</span>
+                    현직 교사로 구성된 강사단 (Gemini Academy Teacher Trainers) 운영으로 교안 및 연수 퀄리티 유지
+                  </li>
+                  <li className="text-center leading-5">
+                    <span>·</span>
+                    대학생 및 취업준비생 대상 교육으로 확장
+                  </li>
+                </ul>
+              </div>
+
+              {/* 2026 */}
+              <div className="relative flex flex-col items-center">
+                <div className="w-16 h-16 rounded-full border-4 border-[#7C3AED] bg-white flex items-center justify-center z-10 mb-4">
+                  <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#4285F4] to-[#A855F7]" />
+                </div>
+                <span className="inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
+                  2026
+                </span>
+                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
+                  교육 대상 및<br />생태계 확장
+                </h3>
+                <ul className="text-sm text-gray-600 space-y-2 w-full px-2">
+                  <li className="text-center leading-5">
+                    <span>·</span>
+                    대학생 연수 확장
+                  </li>
+                  <li className="text-center leading-5">
+                    <span>·</span>
+                    Gemini 활용의 전방위적 확산 추진
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
