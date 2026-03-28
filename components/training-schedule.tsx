@@ -6,7 +6,7 @@ interface Training {
   month: string;
   topic: string;
   date?: string;
-  status: 'completed' | 'upcoming';
+  status: 'completed' | 'upcoming' | 'pending';
   applyUrl?: string;
 }
 
@@ -19,9 +19,15 @@ const schedules: Record<string, Training[]> = {
   '2026': [
     { month: '3월', topic: 'Edu Plus', date: '3/26(목)', status: 'completed' },
     { month: '4월', topic: 'Gems', status: 'upcoming', applyUrl: '#' },
-    { month: '5월', topic: 'NotebookLM', status: 'upcoming', applyUrl: '#' },
-    { month: '6월', topic: 'Deep Research\n& Canvas', status: 'upcoming', applyUrl: '#' },
+    { month: '5월', topic: 'NotebookLM', status: 'pending' },
+    { month: '6월', topic: 'Deep Research\n& Canvas', status: 'pending' },
   ],
+};
+
+const statusConfig = {
+  completed: { label: '진행완료', color: 'bg-gray-400' },
+  upcoming: { label: '접수중', color: 'bg-[#34A853]' },
+  pending: { label: '접수예정', color: 'bg-[#FBBC04]' },
 };
 
 export function TrainingSchedule() {
@@ -53,47 +59,50 @@ export function TrainingSchedule() {
           ? 'md:grid-cols-3'
           : 'md:grid-cols-2 lg:grid-cols-4'
       }`}>
-        {schedules[activeYear].map((item) => (
-          <div
-            key={item.month}
-            className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col"
-          >
-            <div className="flex items-center justify-between mb-4">
-              <span
-                className={`text-sm font-semibold text-white px-3 py-1 rounded-full ${
-                  item.status === 'completed' ? 'bg-gray-400' : 'bg-[#FBBC04]'
-                }`}
-              >
-                {item.status === 'completed' ? '진행완료' : '진행예정'}
-              </span>
-              {item.date && (
-                <span className="text-sm text-gray-500">{item.date}</span>
-              )}
-            </div>
-            <h3 className="text-2xl font-bold text-gray-900 mb-2">
-              {item.month}
-            </h3>
-            <p className="text-lg font-semibold text-[#4285F4] mb-6 whitespace-pre-line">
-              {item.topic}
-            </p>
-            <div className="mt-auto">
-              {item.status === 'completed' ? (
-                <span className="inline-block w-full text-center bg-gray-200 text-gray-500 font-semibold py-3 rounded-full cursor-not-allowed">
-                  마감
+        {schedules[activeYear].map((item) => {
+          const config = statusConfig[item.status];
+          return (
+            <div
+              key={item.month}
+              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col"
+            >
+              <div className="flex items-center justify-between mb-4">
+                <span className={`text-sm font-semibold text-white px-3 py-1 rounded-full ${config.color}`}>
+                  {config.label}
                 </span>
-              ) : (
-                <a
-                  href={item.applyUrl || '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block w-full text-center bg-[#1A73E8] hover:bg-[#1557B0] text-white font-semibold py-3 rounded-full transition-colors"
-                >
-                  신청하기
-                </a>
-              )}
+                {item.date && (
+                  <span className="text-sm text-gray-500">{item.date}</span>
+                )}
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+                {item.month}
+              </h3>
+              <p className="text-lg font-semibold text-[#4285F4] mb-6 whitespace-pre-line">
+                {item.topic}
+              </p>
+              <div className="mt-auto">
+                {item.status === 'completed' ? (
+                  <span className="inline-block w-full text-center bg-gray-200 text-gray-500 font-semibold py-3 rounded-full cursor-not-allowed">
+                    마감
+                  </span>
+                ) : item.status === 'upcoming' ? (
+                  <a
+                    href={item.applyUrl || '#'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block w-full text-center bg-[#1A73E8] hover:bg-[#1557B0] text-white font-semibold py-3 rounded-full transition-colors"
+                  >
+                    신청하기
+                  </a>
+                ) : (
+                  <span className="inline-block w-full text-center bg-[#FBBC04] text-white font-semibold py-3 rounded-full cursor-not-allowed">
+                    접수예정
+                  </span>
+                )}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );

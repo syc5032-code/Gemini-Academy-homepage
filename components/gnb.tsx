@@ -15,7 +15,7 @@ export function GNB() {
     { label: 'History', href: '#ga-history' },
     { label: 'Overview', href: '#ga-overview' },
     { label: '연수종류', href: '#ga-programs' },
-    { label: '연수신청', href: '#ga-apply' },
+    { label: '연수신청', href: '#ga-visit' },
   ];
 
   return (

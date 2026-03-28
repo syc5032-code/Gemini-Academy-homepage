@@ -9,7 +9,7 @@ export default function Home() {
       <Hero />
 
       {/* Placeholder sections for future content */}
-      <section id="academy" className="py-20">
+      <section id="academy" className="py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Mission Card */}
           <div className="bg-gradient-to-br from-[#2EC4B6] to-[#26A69A] rounded-2xl p-10 lg:p-14 mb-16">
@@ -52,7 +52,7 @@ export default function Home() {
       </section>
 
       {/* Gemini Academy Sub-sections */}
-      <section id="ga-intro" className="py-20 bg-gray-50">
+      <section id="ga-intro" className="py-20 bg-gray-50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-bold mb-10">
@@ -106,7 +106,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ga-history" className="py-20">
+      <section id="ga-history" className="py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
@@ -220,7 +220,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ga-overview" className="py-20 bg-gray-50">
+      <section id="ga-overview" className="py-20 bg-gray-50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
@@ -296,7 +296,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ga-programs" className="py-20">
+      <section id="ga-programs" className="py-20 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
@@ -341,27 +341,144 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="ga-apply" className="py-20 bg-gray-50">
+      {/* 찾아가는 연수 신청 */}
+      <section id="ga-visit" className="py-20 bg-gray-50 scroll-mt-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Title */}
           <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
             <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
               Gemini Academy
             </span>
             {' '}
-            <span className="text-gray-900">연수신청</span>
+            <span className="text-gray-900">찾아가는 연수 신청</span>
+          </h2>
+
+          <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8">
+            {/* Left - Banner */}
+            <div className="flex-1">
+              <div className="bg-gradient-to-br from-[#1A237E] to-[#4285F4] rounded-2xl p-8 lg:p-10 text-white flex flex-col justify-center items-center text-center min-h-[320px]">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src="/logos/gemini-star-clean.png" alt="" className="h-10 w-10 mb-4" />
+                <h3 className="text-2xl lg:text-3xl font-bold mb-3">
+                  Gemini Academy<br />찾아가는 연수
+                </h3>
+                <div className="bg-white/20 backdrop-blur-sm rounded-full px-5 py-2 mt-2">
+                  <span className="font-semibold text-lg">상시 모집</span>
+                </div>
+              </div>
+
+              <p className="text-gray-600 text-center mt-4 text-sm leading-relaxed">
+                학교에서 원하는 일정에 맞춰 Gemini Academy 연수를 신청할 수 있습니다.
+              </p>
+            </div>
+
+            {/* Right - Info & CTA */}
+            <div className="lg:w-[340px] shrink-0">
+              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+                <h3 className="text-lg font-bold text-gray-900 mb-4">찾아가는 연수 안내</h3>
+
+                <div className="border-t border-gray-100 pt-4 space-y-4">
+                  <div className="flex gap-4">
+                    <span className="text-sm text-gray-400 w-12 shrink-0">대상</span>
+                    <span className="text-sm text-gray-700">전국 초·중·고등학교 교원</span>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="text-sm text-gray-400 w-12 shrink-0">신청</span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-sm text-gray-700">상시 접수</span>
+                      <span className="text-xs font-semibold text-white bg-[#34A853] px-2 py-0.5 rounded-full">모집중</span>
+                    </div>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="text-sm text-gray-400 w-12 shrink-0">비용</span>
+                    <span className="text-sm text-gray-700">무료 (추가 연수 시 비용 별도)</span>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="text-sm text-gray-400 w-12 shrink-0">장소</span>
+                    <span className="text-sm text-gray-700">신청 학교 방문 진행</span>
+                  </div>
+                  <div className="flex gap-4">
+                    <span className="text-sm text-gray-400 w-12 shrink-0">내용</span>
+                    <span className="text-sm text-gray-700">Gemini 활용 교원 연수</span>
+                  </div>
+                </div>
+
+                <div className="mt-6">
+                  <a
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="block w-full text-center bg-[#1A73E8] hover:bg-[#1557B0] text-white font-semibold py-3 rounded-lg transition-colors"
+                  >
+                    신청하기
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 웨비나 신청 */}
+      <section id="ga-apply" className="py-20 scroll-mt-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
+            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
+              Gemini Academy
+            </span>
+            {' '}
+            <span className="text-gray-900">웨비나 신청</span>
           </h2>
 
           <TrainingSchedule />
         </div>
       </section>
 
-      <section id="contact" className="py-20">
+      <section id="contact" className="relative py-20 scroll-mt-20 bg-gradient-to-br from-[#1A237E] via-[#4285F4] to-[#A855F7] text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-center text-gray-900">
+          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-4">
             문의
           </h2>
-          <p className="text-center text-gray-600 mt-4">Coming Soon</p>
+          <p className="text-center text-white/70 mb-2">
+            궁금한 점이 있으시면 언제든 문의해 주세요.
+          </p>
+          <p className="text-center text-white/50 text-sm mb-12">
+            운영기관 JA Korea
+          </p>
+
+          <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 max-w-3xl mx-auto">
+            {/* Email */}
+            <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">✉️</span>
+              </div>
+              <p className="text-sm text-white mb-1">이메일</p>
+              <a href="mailto:gfe@jakorea.org" className="text-lg font-semibold text-white hover:underline">
+                gfe@jakorea.org
+              </a>
+            </div>
+
+            {/* 송예찬 매니저 */}
+            <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">📞</span>
+              </div>
+              <p className="text-sm text-white mb-1">송예찬 매니저</p>
+              <a href="tel:02-761-6001" className="text-lg font-semibold text-white hover:underline">
+                02-761-6001
+              </a>
+            </div>
+
+            {/* 정미래 매니저 */}
+            <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
+              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl">📞</span>
+              </div>
+              <p className="text-sm text-white mb-1">정미래 매니저</p>
+              <a href="tel:02-6952-9720" className="text-lg font-semibold text-white hover:underline">
+                02-6952-9720
+              </a>
+            </div>
+          </div>
         </div>
       </section>
     </main>

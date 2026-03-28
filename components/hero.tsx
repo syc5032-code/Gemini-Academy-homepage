@@ -6,7 +6,17 @@ import Image from 'next/image';
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-gray-50 py-10 sm:py-14 lg:py-24">
+    <section className="relative overflow-hidden py-10 sm:py-14 lg:py-24">
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logos/hero-bg.jpeg"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_rgba(255,255,255,0.85)_30%,_rgba(255,255,255,0.4)_80%,_rgba(255,255,255,0.2)_100%)]" />
+      </div>
       <div className="relative max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div className="flex flex-col items-center text-center space-y-6 sm:space-y-10">
           {/* Welcome Title */}
@@ -62,10 +72,10 @@ export function Hero() {
           {/* CTA Button */}
           <div className="flex items-center justify-center pt-4 sm:pt-6">
             <Link
-              href="#academy"
+              href="#ga-visit"
               className="inline-flex items-center justify-center px-6 sm:px-8 py-2.5 sm:py-3 text-sm sm:text-base bg-ja-blue-600 text-white font-medium rounded hover:bg-ja-blue-700 transition-colors"
             >
-              Gemini Academy 알아보기 →
+              Gemini Academy 신청하기 →
             </Link>
           </div>
         </div>
