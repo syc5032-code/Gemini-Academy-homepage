@@ -18,7 +18,7 @@ const schedules: Record<string, Training[]> = {
   ],
   '2026': [
     { month: '3월', topic: 'Edu Plus', date: '3/26(목)', status: 'completed' },
-    { month: '4월', topic: 'Gems', status: 'upcoming', applyUrl: '#' },
+    { month: '4월', topic: 'Gems', status: 'upcoming', applyUrl: 'https://forms.gle/iajj37GSnXSGymf8A' },
     { month: '5월', topic: 'NotebookLM', status: 'pending' },
     { month: '6월', topic: 'Deep Research\n& Canvas', status: 'pending' },
   ],
