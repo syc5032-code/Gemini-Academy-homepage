@@ -403,7 +403,7 @@ export default function Home() {
                 </div>
 
                 <div className="mt-6">
-                  <span className="block w-full text-center bg-gray-200 text-gray-500 font-semibold py-3 rounded-lg cursor-not-allowed">
+                  <span className="block w-full text-center bg-[#FBBC04] text-white font-semibold py-3 rounded-full cursor-not-allowed">
                     접수예정
                   </span>
                 </div>
