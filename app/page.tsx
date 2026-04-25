@@ -362,7 +362,7 @@ export default function Home() {
                   Gemini Academy<br />찾아가는 연수
                 </h3>
                 <div className="bg-white/20 backdrop-blur-sm rounded-full px-5 py-2 mt-2">
-                  <span className="font-semibold text-lg">상시 모집</span>
+                  <span className="font-semibold text-lg">접수예정</span>
                 </div>
               </div>
 
@@ -384,8 +384,8 @@ export default function Home() {
                   <div className="flex gap-4">
                     <span className="text-sm text-gray-400 w-12 shrink-0">신청</span>
                     <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-700">상시 접수</span>
-                      <span className="text-xs font-semibold text-white bg-[#34A853] px-2 py-0.5 rounded-full">모집중</span>
+                      <span className="text-sm text-gray-700">접수 예정</span>
+                      <span className="text-xs font-semibold text-white bg-[#FBBC04] px-2 py-0.5 rounded-full">접수예정</span>
                     </div>
                   </div>
                   <div className="flex gap-4">
@@ -403,14 +403,9 @@ export default function Home() {
                 </div>
 
                 <div className="mt-6">
-                  <a
-                    href="#"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="block w-full text-center bg-[#1A73E8] hover:bg-[#1557B0] text-white font-semibold py-3 rounded-lg transition-colors"
-                  >
-                    신청하기
-                  </a>
+                  <span className="block w-full text-center bg-gray-200 text-gray-500 font-semibold py-3 rounded-lg cursor-not-allowed">
+                    접수예정
+                  </span>
                 </div>
               </div>
             </div>
