@@ -1,13 +1,16 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
+type TrainingStatus = 'completed' | 'upcoming' | 'pending';
 
 interface Training {
   month: string;
   topic: string;
   date?: string;
-  status: 'completed' | 'upcoming' | 'pending';
+  status: TrainingStatus;
   applyUrl?: string;
+  closesAt?: string;
 }
 
 const schedules: Record<string, Training[]> = {
@@ -18,8 +21,14 @@ const schedules: Record<string, Training[]> = {
   ],
   '2026': [
     { month: '3월', topic: 'Edu Plus', date: '3/26(목)', status: 'completed' },
-    { month: '4월', topic: 'Gems', status: 'upcoming', applyUrl: 'https://forms.gle/iajj37GSnXSGymf8A' },
-    { month: '5월', topic: 'NotebookLM', status: 'pending' },
+    { month: '4월', topic: 'Gems', status: 'completed' },
+    {
+      month: '5월',
+      topic: 'NotebookLM',
+      status: 'upcoming',
+      applyUrl: 'https://forms.gle/YqUZELFJ4fsMKVG48',
+      closesAt: '2026-05-28T17:00:00+09:00',
+    },
     { month: '6월', topic: 'Deep Research\n& Canvas', status: 'pending' },
   ],
 };
@@ -30,9 +39,36 @@ const statusConfig = {
   pending: { label: '접수예정', color: 'bg-[#FBBC04]' },
 };
 
+function getEffectiveStatus(item: Training, now: Date | null): TrainingStatus {
+  if (item.closesAt && now && now.getTime() >= Date.parse(item.closesAt)) {
+    return 'completed';
+  }
+
+  return item.status;
+}
+
 export function TrainingSchedule() {
   const [activeYear, setActiveYear] = useState('2026');
+  const [now, setNow] = useState<Date | null>(null);
   const years = Object.keys(schedules);
+
+  useEffect(() => {
+    const updateNow = () => setNow(new Date());
+    updateNow();
+
+    const closeTimers = Object.values(schedules)
+      .flat()
+      .map((item) => item.closesAt ? Date.parse(item.closesAt) : Number.NaN)
+      .filter((closeTime) => Number.isFinite(closeTime) && closeTime > Date.now())
+      .map((closeTime) => window.setTimeout(updateNow, closeTime - Date.now() + 100));
+
+    const interval = window.setInterval(updateNow, 60 * 1000);
+
+    return () => {
+      closeTimers.forEach((timer) => window.clearTimeout(timer));
+      window.clearInterval(interval);
+    };
+  }, []);
 
   return (
     <div>
@@ -60,7 +96,8 @@ export function TrainingSchedule() {
           : 'md:grid-cols-2 lg:grid-cols-4'
       }`}>
         {schedules[activeYear].map((item) => {
-          const config = statusConfig[item.status];
+          const effectiveStatus = getEffectiveStatus(item, now);
+          const config = statusConfig[effectiveStatus];
           return (
             <div
               key={item.month}
@@ -81,11 +118,11 @@ export function TrainingSchedule() {
                 {item.topic}
               </p>
               <div className="mt-auto">
-                {item.status === 'completed' ? (
+                {effectiveStatus === 'completed' ? (
                   <span className="inline-block w-full text-center bg-gray-200 text-gray-500 font-semibold py-3 rounded-full cursor-not-allowed">
                     마감
                   </span>
-                ) : item.status === 'upcoming' ? (
+                ) : effectiveStatus === 'upcoming' ? (
                   <a
                     href={item.applyUrl || '#'}
                     target="_blank"
