@@ -34,9 +34,9 @@ const schedules: Record<string, Training[]> = {
 };
 
 const statusConfig = {
-  completed: { label: '진행완료', color: 'bg-gray-400' },
-  upcoming: { label: '접수중', color: 'bg-[#34A853]' },
-  pending: { label: '접수예정', color: 'bg-[#FBBC04]' },
+  completed: { label: '진행완료', color: 'bg-black', textColor: 'text-white' },
+  upcoming: { label: '접수중', color: 'bg-[#1ea64a]', textColor: 'text-white' },
+  pending: { label: '접수예정', color: 'bg-[#f4ecd6]', textColor: 'text-black' },
 };
 
 function getEffectiveStatus(item: Training, now: Date | null): TrainingStatus {
@@ -73,15 +73,15 @@ export function TrainingSchedule() {
   return (
     <div>
       {/* Year Tabs */}
-      <div className="flex justify-center gap-2 mb-12">
+      <div className="mb-12 flex justify-center gap-2">
         {years.map((year) => (
           <button
             key={year}
             onClick={() => setActiveYear(year)}
-            className={`px-6 py-2.5 rounded-full font-semibold text-lg transition-colors ${
+            className={`min-h-11 rounded-full px-6 py-2.5 text-base font-medium transition-colors ${
               activeYear === year
-                ? 'bg-[#1A73E8] text-white'
-                : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                ? 'bg-black text-white'
+                : 'border border-[#e6e6e6] bg-white text-black hover:bg-[#f7f7f5]'
             }`}
           >
             {year}년
@@ -90,7 +90,7 @@ export function TrainingSchedule() {
       </div>
 
       {/* Cards */}
-      <div className={`grid grid-cols-1 gap-6 ${
+      <div className={`grid grid-cols-1 gap-4 ${
         schedules[activeYear].length === 3
           ? 'md:grid-cols-3'
           : 'md:grid-cols-2 lg:grid-cols-4'
@@ -101,25 +101,25 @@ export function TrainingSchedule() {
           return (
             <div
               key={item.month}
-              className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 flex flex-col"
+              className="flex min-h-[260px] flex-col rounded-lg border border-[#e6e6e6] bg-white p-6"
             >
-              <div className="flex items-center justify-between mb-4">
-                <span className={`text-sm font-semibold text-white px-3 py-1 rounded-full ${config.color}`}>
+              <div className="mb-6 flex items-center justify-between">
+                <span className={`rounded-full px-3 py-1 font-mono text-xs font-normal uppercase ${config.color} ${config.textColor}`}>
                   {config.label}
                 </span>
                 {item.date && (
-                  <span className="text-sm text-gray-500">{item.date}</span>
+                  <span className="font-mono text-xs uppercase text-black">{item.date}</span>
                 )}
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-2">
+              <h3 className="figma-heading mb-3 text-4xl leading-none text-black">
                 {item.month}
               </h3>
-              <p className="text-lg font-semibold text-[#4285F4] mb-6 whitespace-pre-line">
+              <p className="figma-copy mb-8 whitespace-pre-line text-xl font-medium text-black">
                 {item.topic}
               </p>
               <div className="mt-auto">
                 {effectiveStatus === 'completed' ? (
-                  <span className="inline-block w-full text-center bg-gray-200 text-gray-500 font-semibold py-3 rounded-full cursor-not-allowed">
+                  <span className="inline-flex min-h-11 w-full cursor-not-allowed items-center justify-center rounded-full bg-[#f1f1f1] px-6 py-3 text-base font-medium text-black">
                     마감
                   </span>
                 ) : effectiveStatus === 'upcoming' ? (
@@ -127,12 +127,12 @@ export function TrainingSchedule() {
                     href={item.applyUrl || '#'}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-block w-full text-center bg-[#1A73E8] hover:bg-[#1557B0] text-white font-semibold py-3 rounded-full transition-colors"
+                    className="inline-flex min-h-11 w-full items-center justify-center rounded-full bg-black px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.02]"
                   >
                     신청하기
                   </a>
                 ) : (
-                  <span className="inline-block w-full text-center bg-[#FBBC04] text-white font-semibold py-3 rounded-full cursor-not-allowed">
+                  <span className="inline-flex min-h-11 w-full cursor-not-allowed items-center justify-center rounded-full bg-[#f4ecd6] px-6 py-3 text-base font-medium text-black">
                     접수예정
                   </span>
                 )}

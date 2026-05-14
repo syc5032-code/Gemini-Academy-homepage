@@ -13,9 +13,6 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko">
-      <head>
-        <meta name="viewport" content="width=1280" />
-      </head>
       <body>{children}</body>
     </html>
   );

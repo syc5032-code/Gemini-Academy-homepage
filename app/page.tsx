@@ -1,477 +1,427 @@
+import {
+  ArrowUpRight,
+  Check,
+  GraduationCap,
+  Mail,
+  Phone,
+  Sparkles,
+  Users,
+} from 'lucide-react';
 import { GNB } from '@/components/gnb';
 import { Hero } from '@/components/hero';
 import { TrainingSchedule } from '@/components/training-schedule';
 
+const jaFeatures = [
+  '청소년들에게 진로취업, 경제금융, 기업가정신, 디지털 리터러시 교육을 합니다.',
+  '전문지식을 갖춘 봉사자 및 교사, 강사가 함께 교육에 참여합니다.',
+  '기업, 공공기관, 학교와의 협업을 통해 교육을 진행합니다.',
+  '온·오프라인 병행이 가능한 프로그램과 교육 콘텐츠를 갖추고 있습니다.',
+  '교육이 필요한 곳에 직접 찾아갑니다.',
+  '개인 및 기업의 기부금을 투명하게 운영·관리하고 있습니다.',
+];
+
+const academyPoints = [
+  'AI Literacy 향상',
+  '안전하고 책임감 있게 Gemini 사용하기',
+  '업무와 학습에 Gemini와 NotebookLM 등 활용',
+];
+
+const history = [
+  {
+    year: '2023.11',
+    title: 'Bard Academy 운영',
+    details: ['교원 대상 프롬프트 작성 및 생성형 AI(현 Gemini) 사용법 교육'],
+  },
+  {
+    year: '2024.01',
+    title: '교육박람회 런칭',
+    details: ['파일럿 성과 기반 프로그램 공식화', '교사 200여 명 대상 아카데미 소개'],
+  },
+  {
+    year: '2024 ~ 2025',
+    title: 'Gemini 확산 및 강사단 운영',
+    details: [
+      '누적 수혜 교사 약 2만 명 달성',
+      '현직 교사로 구성된 강사단 운영으로 교안 및 연수 퀄리티 유지',
+      '대학생 및 취업준비생 대상 교육으로 확장',
+    ],
+  },
+  {
+    year: '2026',
+    title: '교육 대상 및 생태계 확장',
+    details: ['대학생 연수 확장', 'Gemini 활용의 전방위적 확산 추진'],
+  },
+];
+
+const programs = [
+  { title: 'Google Korea 방문 연수', detail: '교육청, 교육지원청 등', color: 'bg-[#dceeb1]' },
+  { title: '찾아가는 연수', detail: '전국 초, 중, 고등학교 교원', color: 'bg-[#c8e6cd]' },
+  { title: '고용노동부 연계연수', detail: '전국 대학생', color: 'bg-[#f4ecd6]' },
+  { title: '강사단\n자체모집 연수', detail: '전국 초, 중, 고등학교 교원', color: 'bg-[#c5b0f4]' },
+  { title: '온라인 웨비나', detail: '월별 주제형 실시간 연수', color: 'bg-[#efd4d4]' },
+];
+
+const contactItems = [
+  { label: '이메일', value: 'gfe@jakorea.org', icon: Mail },
+  { label: '송예찬 매니저', value: '02-761-6001', icon: Phone },
+  { label: '정미래 매니저', value: '02-6952-9720', icon: Phone },
+];
+
+const jaMapPoints = [
+  { label: 'JUNIOR\nACHIEVEMENT\nUSA', left: '16%', top: '27%', size: 'clamp(78px, 15vw, 112px)' },
+  { label: 'JA EUROPE', left: '42%', top: '27%', size: 'clamp(78px, 15vw, 112px)' },
+  { label: 'INJAZ AL\nARAB\nJA MENA', left: '62%', top: '45%', size: 'clamp(78px, 15vw, 112px)' },
+  { label: 'JA AFRICA', left: '45%', top: '67%', size: 'clamp(78px, 15vw, 112px)' },
+  { label: 'JA ASIA\nPACIFIC', left: '81%', top: '45%', size: 'clamp(78px, 15vw, 112px)' },
+  { label: 'JA AMERICAS\nincludes Canada', left: '22%', top: '79%', size: 'clamp(78px, 15vw, 112px)' },
+  { label: 'JA\nWorldwide', left: '91%', top: '16%', size: 'clamp(78px, 15vw, 112px)' },
+];
+
+function JaWorldwideMap() {
+  return (
+    <div
+      aria-hidden="true"
+      className="relative mx-auto aspect-[784/459] w-full max-w-[650px]"
+    >
+      <img
+        src="/ja-world-map.svg"
+        alt=""
+        className="h-full w-full object-contain opacity-80"
+      />
+      {jaMapPoints.map((point) => (
+        <div
+          key={point.label}
+          className="absolute flex -translate-x-1/2 -translate-y-1/2 flex-col items-center justify-center rounded-full bg-[#173f46] px-3 text-center text-[clamp(10px,1.2vw,14px)] font-bold leading-[1.18] text-white shadow-sm"
+          style={{
+            left: point.left,
+            top: point.top,
+            width: point.size,
+            height: point.size,
+          }}
+        >
+          {point.label.split('\n').map((line) => (
+            <span key={line} className="block whitespace-nowrap">
+              {line}
+            </span>
+          ))}
+        </div>
+      ))}
+    </div>
+  );
+}
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white">
+    <main className="min-h-screen overflow-x-hidden bg-white text-black">
       <GNB />
       <Hero />
 
-      {/* Placeholder sections for future content */}
-      <section id="academy" className="py-20 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Mission Card */}
-          <div className="bg-gradient-to-br from-[#2EC4B6] to-[#26A69A] rounded-2xl p-10 lg:p-14 mb-16">
-            <h3 className="text-3xl lg:text-4xl font-bold text-white mb-4">
+      <section id="academy" className="scroll-mt-20 py-20 sm:py-24">
+        <div className="mx-auto w-[calc(100vw-40px)] max-w-7xl px-0 sm:w-auto sm:px-8">
+          <div className="min-w-0 overflow-hidden rounded-[24px] bg-[#c8e6cd] px-7 py-10 sm:px-12 lg:px-16 lg:py-14">
+            <p className="mb-8 font-mono text-sm uppercase text-black">
               JA Korea
-            </h3>
-            <div className="w-12 h-1 bg-white/60 mb-6" />
-            <p className="text-lg text-white/90 leading-relaxed max-w-xl">
-              JA는 청소년들이 마음껏 역량을 발휘하며<br />
-              성공할 수 있도록 함께 합니다.
             </p>
+            <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <h2 className="figma-heading max-w-2xl text-3xl leading-[1.12] text-black sm:text-5xl lg:text-6xl">
+                청소년이 역량을 마음껏 발휘하고 성공할 수 있도록 함께합니다.
+              </h2>
+              <div className="min-w-0">
+                <div className="mb-8">
+                  <JaWorldwideMap />
+                </div>
+                <p className="figma-copy min-w-0 text-lg font-medium text-black sm:text-xl lg:text-2xl">
+                  JA Korea는 JA Worldwide의 한국 지부로서 2002년 설립 이래 기업,
+                  공공기관, 학교와의 협업을 통해 약 180만명의 청소년을 교육했습니다.
+                </p>
+              </div>
+            </div>
           </div>
 
-          {/* Description */}
-          <div className="mb-12">
-            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 leading-snug mb-10">
-              JA Korea는 JA Worldwide의 한국 지부로서<br />
-              2002년 설립 이래 현재까지 기업, 공공기관, 학교와의 협업을 통해<br />
-              약 180만명의 청소년을 교육했습니다.
-            </h3>
-          </div>
-
-          {/* Feature List */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-5">
-            {[
-              '청소년들에게 진로취업, 경제금융, 기업가정신, 디지털 리터러시 교육을 합니다.',
-              '전문지식을 갖춘 봉사자 및 교사, 강사가 함께 교육에 참여합니다.',
-              '기업, 공공기관, 학교와의 협업을 통해 교육을 진행합니다.',
-              '온·오프라인 병행이 가능한 프로그램과 교육 콘텐츠를 갖추고 있습니다.',
-              '교육이 필요한 곳에 직접 찾아갑니다.',
-              '개인 및 기업의 기부금을 투명하게 운영·관리하고 있습니다.',
-            ].map((item, i) => (
-              <div key={i} className="flex items-start gap-3">
-                <span className="text-[#2EC4B6] mt-1.5 shrink-0">●</span>
-                <p className="text-gray-600 leading-relaxed">{item}</p>
+          <div className="mt-14 grid gap-px overflow-hidden rounded-lg border border-[#e6e6e6] bg-[#e6e6e6] md:grid-cols-2">
+            {jaFeatures.map((item) => (
+              <div key={item} className="flex gap-3 bg-white px-5 py-6">
+                <Check className="mt-1 h-4 w-4 shrink-0 text-black" />
+                <p className="figma-copy min-w-0 text-[15px] font-medium text-black sm:text-base lg:whitespace-nowrap">
+                  {item}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Gemini Academy Sub-sections */}
-      <section id="ga-intro" className="py-20 bg-gray-50 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-bold mb-10">
-            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
-              Gemini Academy
-            </span>
-            {' '}란?
-          </h2>
+      <section id="ga-intro" className="scroll-mt-20 py-20 sm:py-24">
+        <div className="mx-auto grid w-[calc(100vw-40px)] max-w-7xl gap-12 px-0 sm:w-auto sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
+          <div>
+            <p className="mb-5 font-mono text-sm uppercase text-black">
+              What is Gemini Academy
+            </p>
+            <h2 className="figma-heading text-4xl leading-[1.08] text-black sm:text-6xl lg:text-7xl">
+              Gemini Academy란?
+            </h2>
+          </div>
 
-          {/* Description */}
-          <p className="text-xl lg:text-2xl font-bold text-gray-900 leading-relaxed mb-10">
-            Google For Education과 국제 청소년 비영리 교육기관 JA Korea가 함께
-            Google의 생성형 AI를 활용하여 교사의 업무를 경감을 돕고, 학생들에게 더
-            많은 시간을 사용할 수 있도록 돕는 연수입니다.
-            <span className="text-base font-normal text-gray-500 ml-1">
-              (※25년부터는 대학생 연수도 진행)
-            </span>
-          </p>
-
-          {/* Bullet Points */}
-          <ul className="space-y-3 mb-10">
-            <li className="flex items-start gap-3">
-              <span className="text-gray-900 mt-1">●</span>
-              <span className="text-lg text-gray-700">AI Literacy 향상</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-gray-900 mt-1">●</span>
-              <span className="text-lg text-gray-700">안전하고 책임감 있게 Gemini 사용하기</span>
-            </li>
-            <li className="flex items-start gap-3">
-              <span className="text-gray-900 mt-1">●</span>
-              <span className="text-lg text-gray-700">업무와 학습에 Gemini와 NotebookLM 등 활용</span>
-            </li>
-          </ul>
-
-          <p className="text-xl font-bold text-gray-900 mb-10">
-            위의 내용을 배울 수 있습니다.
-          </p>
-
-          {/* CTA Link */}
-          <a
-            href="https://gemini.google.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-[#1A73E8] hover:bg-[#1557B0] text-white font-semibold text-lg px-8 py-4 rounded-full transition-colors"
-          >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/logos/gemini-star-clean.png" alt="" className="h-6 w-6" />
-            gemini.google.com
-          </a>
-        </div>
-      </section>
-
-      <section id="ga-history" className="py-20 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
-              Gemini Academy
-            </span>
-            {' '}
-            <span className="text-gray-900">History with </span>
-            <span className="text-[#2EC4B6]">JA Korea</span>
-          </h2>
-
-          {/* Timeline */}
-          <div className="relative">
-            {/* Timeline line */}
-            <div className="hidden md:block absolute top-8 left-0 right-0 h-0.5 bg-gray-200" />
-
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 md:gap-6">
-              {/* 2023.11 */}
-              <div className="relative flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full border-4 border-[#7C3AED] bg-white flex items-center justify-center z-10 mb-4">
-                  <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#4285F4] to-[#A855F7]" />
+          <div className="space-y-8">
+            <p className="figma-copy min-w-0 text-xl font-medium text-black lg:text-[26px]">
+              Google for Education과 국제 청소년 비영리 교육기관 JA Korea가 함께
+              Google의 생성형 AI를 활용하여 교사의 업무 경감을 돕고, 학생들에게
+              더 많은 시간을 사용할 수 있도록 돕는 연수입니다.
+              <span className="block pt-3 text-base font-medium">
+                ※ 2025년부터는 대학생 연수도 진행
+              </span>
+            </p>
+            <div className="divide-y divide-[#e6e6e6] border-y border-[#e6e6e6]">
+              {academyPoints.map((point) => (
+                <div key={point} className="flex items-center gap-4 py-4">
+                  <Sparkles className="h-5 w-5 text-black" />
+                  <span className="figma-copy min-w-0 text-lg font-medium text-black">{point}</span>
                 </div>
-                <span className="inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
-                  2023.11
-                </span>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
-                  Bard Academy<br />운영
-                </h3>
-                <ul className="text-sm text-gray-600 space-y-2 w-full px-2">
-                  <li className="text-center leading-5">
-                    <span>·</span>
-                    교원 대상 프롬프트 작성 및 생성형 AI(현 Gemini) 사용법 교육
-                  </li>
-                </ul>
-              </div>
-
-              {/* 2024.01 */}
-              <div className="relative flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full border-4 border-[#7C3AED] bg-white flex items-center justify-center z-10 mb-4">
-                  <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#4285F4] to-[#A855F7]" />
-                </div>
-                <span className="inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
-                  2024.01
-                </span>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
-                  교육박람회<br />런칭
-                </h3>
-                <ul className="text-sm text-gray-600 space-y-2 w-full px-2">
-                  <li className="text-center leading-5">
-                    <span>·</span>
-                    파일럿 성과 기반 프로그램 공식화
-                  </li>
-                  <li className="text-center leading-5">
-                    <span>·</span>
-                    교사 200여 명 대상 아카데미 소개
-                  </li>
-                </ul>
-              </div>
-
-              {/* 2024 ~ 2025 */}
-              <div className="relative flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full border-4 border-[#7C3AED] bg-white flex items-center justify-center z-10 mb-4">
-                  <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#4285F4] to-[#A855F7]" />
-                </div>
-                <span className="inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
-                  2024 ~ 2025
-                </span>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
-                  Gemini 확산 및<br />강사단 운영
-                </h3>
-                <ul className="text-sm text-gray-600 space-y-2 w-full px-2">
-                  <li className="text-center leading-5">
-                    <span>·</span>
-                    누적 수혜 교사 약 2만 명 달성
-                  </li>
-                  <li className="text-center leading-5">
-                    <span>·</span>
-                    현직 교사로 구성된 강사단 (Gemini Academy Teacher Trainers) 운영으로 교안 및 연수 퀄리티 유지
-                  </li>
-                  <li className="text-center leading-5">
-                    <span>·</span>
-                    대학생 및 취업준비생 대상 교육으로 확장
-                  </li>
-                </ul>
-              </div>
-
-              {/* 2026 */}
-              <div className="relative flex flex-col items-center">
-                <div className="w-16 h-16 rounded-full border-4 border-[#7C3AED] bg-white flex items-center justify-center z-10 mb-4">
-                  <div className="w-4 h-4 rounded-full bg-gradient-to-r from-[#4285F4] to-[#A855F7]" />
-                </div>
-                <span className="inline-block bg-gray-100 text-gray-700 text-sm font-semibold px-4 py-1.5 rounded-full mb-3">
-                  2026
-                </span>
-                <h3 className="text-lg font-bold text-gray-900 mb-3 text-center">
-                  교육 대상 및<br />생태계 확장
-                </h3>
-                <ul className="text-sm text-gray-600 space-y-2 w-full px-2">
-                  <li className="text-center leading-5">
-                    <span>·</span>
-                    대학생 연수 확장
-                  </li>
-                  <li className="text-center leading-5">
-                    <span>·</span>
-                    Gemini 활용의 전방위적 확산 추진
-                  </li>
-                </ul>
-              </div>
+              ))}
             </div>
+            <a
+              href="https://gemini.google.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex min-h-11 items-center gap-2 rounded-full bg-black px-6 py-3 text-base font-medium text-white transition-transform hover:scale-[1.02]"
+            >
+              gemini.google.com
+              <ArrowUpRight className="h-5 w-5" />
+            </a>
           </div>
         </div>
       </section>
 
-      <section id="ga-overview" className="py-20 bg-gray-50 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
-              Gemini Academy
-            </span>
-            {' '}
-            <span className="text-gray-900">Overview</span>
-          </h2>
-
-          {/* Stats Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-            {/* Teacher Trainers */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex items-center gap-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#4285F4]/10 to-[#A855F7]/10 rounded-xl flex items-center justify-center shrink-0">
-                <span className="text-3xl">🎓</span>
-              </div>
+      <section id="ga-history" className="scroll-mt-20 py-20 sm:py-24">
+        <div className="mx-auto w-[calc(100vw-40px)] max-w-7xl px-0 sm:w-auto sm:px-8">
+          <div className="min-w-0 overflow-hidden rounded-[24px] bg-[#c5b0f4] px-7 py-10 sm:px-12 lg:px-16 lg:py-14">
+            <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
               <div>
-                <p className="text-sm text-gray-500 mb-1">Gemini Academy Trainers 2024~2026</p>
-                <p className="text-base text-gray-600">누적 활동 강사 수</p>
-                <p className="text-4xl font-bold text-gray-900 mt-1">120<span className="text-2xl">명</span></p>
+                <p className="mb-5 font-mono text-sm uppercase text-black">
+                  History
+                </p>
+                <h2 className="figma-heading max-w-3xl text-3xl leading-[1.2] text-black sm:text-5xl lg:text-6xl">
+                  Gemini Academy History with JA Korea
+                </h2>
               </div>
             </div>
 
-            {/* Total Students */}
-            <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100 flex items-center gap-6">
-              <div className="w-16 h-16 bg-gradient-to-br from-[#4285F4]/10 to-[#A855F7]/10 rounded-xl flex items-center justify-center shrink-0">
-                <span className="text-3xl">📚</span>
-              </div>
+            <div className="grid gap-px overflow-hidden rounded-lg bg-black/20 lg:grid-cols-4">
+              {history.map((item) => (
+                <article key={item.year} className="bg-[#c5b0f4] p-6">
+                  <p className="mb-5 inline-flex rounded-full bg-black px-4 py-2 font-mono text-xs uppercase text-white">
+                    {item.year}
+                  </p>
+                  <h3 className="figma-copy mb-5 text-2xl font-bold leading-tight text-black">
+                    {item.title}
+                  </h3>
+                  <ul className="space-y-3">
+                    {item.details.map((detail) => (
+                      <li key={detail} className="figma-copy flex min-w-0 gap-3 text-base font-medium text-black">
+                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-black" />
+                        {detail}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ga-overview" className="scroll-mt-20 py-20 sm:py-24">
+        <div className="mx-auto w-[calc(100vw-40px)] max-w-7xl px-0 sm:w-auto sm:px-8">
+          <div className="min-w-0 overflow-hidden rounded-[24px] bg-[#f4ecd6] px-7 py-10 sm:px-12 lg:px-16 lg:py-14">
+            <p className="mb-5 font-mono text-sm uppercase text-black">
+              Overview
+            </p>
+            <div className="grid gap-12 lg:grid-cols-[0.85fr_1.15fr]">
               <div>
-                <p className="text-sm text-gray-500 mb-1">Gemini Academy 2024~2025</p>
-                <p className="text-base text-gray-600">누적 수강생 수</p>
-                <p className="text-4xl font-bold text-gray-900 mt-1">20,140+<span className="text-2xl"> 명</span></p>
-              </div>
-            </div>
-          </div>
-
-          {/* Pie Chart Section */}
-          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-sm border border-gray-100 mb-16">
-            <h3 className="text-xl font-bold text-gray-900 text-center mb-8">수강생 구성 <span className="text-base font-normal text-gray-500">(2025년 기준)</span></h3>
-            <div className="flex flex-col md:flex-row items-center justify-center gap-12">
-              {/* Pie Chart (CSS) */}
-              <div className="relative w-64 h-64">
-                <div
-                  className="w-full h-full rounded-full"
-                  style={{
-                    background: 'conic-gradient(#FBBC04 0deg 18.9deg, #EA4335 18.9deg 36deg, #4285F4 36deg 360deg)',
-                  }}
-                />
-                <div className="absolute inset-8 bg-white rounded-full" />
-              </div>
-
-              {/* Legend */}
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded-full bg-[#4285F4] shrink-0" />
-                  <span className="text-gray-700 font-medium">Teachers</span>
-                  <span className="text-gray-500 ml-auto">10,471명 (85.6%)</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded-full bg-[#FBBC04] shrink-0" />
-                  <span className="text-gray-700 font-medium">High School Students</span>
-                  <span className="text-gray-500 ml-auto">1,149명 (9.4%)</span>
-                </div>
-                <div className="flex items-center gap-3">
-                  <div className="w-4 h-4 rounded-full bg-[#EA4335] shrink-0" />
-                  <span className="text-gray-700 font-medium">University Students</span>
-                  <span className="text-gray-500 ml-auto">618명 (5.0%)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section id="ga-programs" className="py-20 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Title */}
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
-              Gemini Academy
-            </span>
-            {' '}
-            <span className="text-gray-900">연수 구분</span>
-          </h2>
-
-          {/* Program Cards */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 lg:gap-6">
-            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px]">
-              <p className="text-center text-gray-800 font-medium leading-relaxed">
-                Google Korea<br />방문 연수<br />
-                <span className="text-gray-500 text-sm">(교육청,<br />교육지원청 등)</span>
-              </p>
-            </div>
-            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px]">
-              <p className="text-center text-gray-800 font-medium leading-relaxed">
-                찾아가는 연수<br />
-                <span className="text-gray-500 text-sm">(전국 초, 중,<br />고등학교 교원)</span>
-              </p>
-            </div>
-            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px]">
-              <p className="text-center text-gray-800 font-medium leading-relaxed">
-                고용노동부<br />연계연수<br />
-                <span className="text-gray-500 text-sm">(전국 대학생)</span>
-              </p>
-            </div>
-            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px]">
-              <p className="text-center text-gray-800 font-medium leading-relaxed">
-                Gemini<br />Academy<br />Trainers<br />자체 모집 연수
-              </p>
-            </div>
-            <div className="bg-[#F0F4FF] rounded-2xl p-6 flex items-center justify-center min-h-[180px] col-span-2 md:col-span-1">
-              <p className="text-center text-gray-800 font-medium leading-relaxed">
-                온라인 웨비나
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* 찾아가는 연수 신청 */}
-      <section id="ga-visit" className="py-20 bg-gray-50 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
-              Gemini Academy
-            </span>
-            <br />
-            <span className="text-gray-900">찾아가는 연수 신청</span>
-          </h2>
-
-          <div className="max-w-5xl mx-auto flex flex-col lg:flex-row gap-8">
-            {/* Left - Banner */}
-            <div className="flex-1">
-              <div className="bg-gradient-to-br from-[#1A237E] to-[#4285F4] rounded-2xl p-8 lg:p-10 text-white flex flex-col justify-center items-center text-center min-h-[320px]">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img src="/logos/gemini-star-clean.png" alt="" className="h-10 w-10 mb-4" />
-                <h3 className="text-2xl lg:text-3xl font-bold mb-3">
-                  Gemini Academy<br />찾아가는 연수
-                </h3>
-                <div className="bg-white/20 backdrop-blur-sm rounded-full px-5 py-2 mt-2">
-                  <span className="font-semibold text-lg">접수예정</span>
+                <h2 className="figma-heading text-3xl leading-[1.12] text-black sm:text-5xl lg:text-6xl">
+                  숫자로 보는 Gemini Academy
+                </h2>
+                <div className="mt-10 grid gap-px overflow-hidden rounded-lg bg-black/15">
+                  <div className="bg-[#f4ecd6] p-6">
+                    <GraduationCap className="mb-7 h-7 w-7 text-black" />
+                    <p className="font-mono text-xs uppercase text-black">
+                      Trainers 2024-2026
+                    </p>
+                    <p className="mt-3 text-5xl font-normal leading-none text-black">
+                      120<span className="text-2xl">명</span>
+                    </p>
+                    <p className="figma-copy mt-2 text-base font-medium text-black">누적 활동 강사 수</p>
+                  </div>
+                  <div className="bg-[#f4ecd6] p-6">
+                    <Users className="mb-7 h-7 w-7 text-black" />
+                    <p className="font-mono text-xs uppercase text-black">
+                      Students 2024-2025
+                    </p>
+                    <p className="mt-3 text-5xl font-normal leading-none text-black">
+                      20,140+
+                    </p>
+                    <p className="figma-copy mt-2 text-base font-medium text-black">누적 수강생 수</p>
+                  </div>
                 </div>
               </div>
 
-              <p className="text-gray-600 text-center mt-4 text-sm leading-relaxed">
-                학교에서 원하는 일정에 맞춰 Gemini Academy 연수를 신청할 수 있습니다.
-              </p>
-            </div>
-
-            {/* Right - Info & CTA */}
-            <div className="lg:w-[340px] shrink-0">
-              <div className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
-                <h3 className="text-lg font-bold text-gray-900 mb-4">찾아가는 연수 안내</h3>
-
-                <div className="border-t border-gray-100 pt-4 space-y-4">
-                  <div className="flex gap-4">
-                    <span className="text-sm text-gray-400 w-12 shrink-0">대상</span>
-                    <span className="text-sm text-gray-700">전국 초·중·고등학교 교원</span>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="text-sm text-gray-400 w-12 shrink-0">신청</span>
-                    <div className="flex items-center gap-2">
-                      <span className="text-sm text-gray-700">접수 예정</span>
-                      <span className="text-xs font-semibold text-white bg-[#FBBC04] px-2 py-0.5 rounded-full">접수예정</span>
-                    </div>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="text-sm text-gray-400 w-12 shrink-0">비용</span>
-                    <span className="text-sm text-gray-700">무료 (추가 연수 시 비용 별도)</span>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="text-sm text-gray-400 w-12 shrink-0">장소</span>
-                    <span className="text-sm text-gray-700">신청 학교 방문 진행</span>
-                  </div>
-                  <div className="flex gap-4">
-                    <span className="text-sm text-gray-400 w-12 shrink-0">내용</span>
-                    <span className="text-sm text-gray-700">Gemini 활용 교원 연수</span>
-                  </div>
-                </div>
-
-                <div className="mt-6">
-                  <span className="block w-full text-center bg-[#FBBC04] text-white font-semibold py-3 rounded-full cursor-not-allowed">
-                    접수예정
+              <div className="rounded-lg bg-white p-6 sm:p-8">
+                <div className="mb-8 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+                  <h3 className="text-2xl font-semibold text-black">수강생 구성</h3>
+                  <span className="font-mono text-xs uppercase text-black">
+                    2025 기준
                   </span>
                 </div>
+                <div className="grid gap-8">
+                  <div className="relative mx-auto h-64 w-64">
+                    <div
+                      className="h-full w-full rounded-full"
+                      style={{
+                        background: 'conic-gradient(#dceeb1 0deg 18.9deg, #efd4d4 18.9deg 36deg, #000000 36deg 360deg)',
+                      }}
+                    />
+                    <div className="absolute inset-10 flex items-center justify-center rounded-full bg-white text-center">
+                      <span className="text-2xl font-semibold leading-tight text-black">
+                        12,238
+                        <span className="block text-sm font-medium">2025 수강생</span>
+                      </span>
+                    </div>
+                  </div>
+                  <div className="grid gap-px overflow-hidden rounded-lg bg-[#e6e6e6] sm:grid-cols-3">
+                    {[
+                      ['교원', '10,471명 (85.6%)', 'bg-black'],
+                      ['고등학생', '1,149명 (9.4%)', 'bg-[#dceeb1]'],
+                      ['대학생', '618명 (5.0%)', 'bg-[#efd4d4]'],
+                    ].map(([label, value, color]) => (
+                      <div key={label} className="flex items-center gap-3 bg-white p-4">
+                        <span className={`h-4 w-4 shrink-0 rounded-full ${color}`} />
+                        <div className="min-w-0">
+                          <span className="block text-base font-bold text-black">{label}</span>
+                          <span className="block whitespace-nowrap text-sm font-semibold text-black">{value}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 웨비나 신청 */}
-      <section id="ga-apply" className="py-20 scroll-mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-16">
-            <span className="bg-gradient-to-r from-[#4285F4] to-[#A855F7] bg-clip-text text-transparent">
-              Gemini Academy
-            </span>
-            {' '}
-            <span className="text-gray-900">웨비나 신청</span>
-          </h2>
+      <section id="ga-programs" className="scroll-mt-20 py-20 sm:py-24">
+        <div className="mx-auto w-[calc(100vw-40px)] max-w-7xl px-0 sm:w-auto sm:px-8">
+          <div className="mb-12 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div>
+              <p className="mb-5 font-mono text-sm uppercase text-black">
+                Programs
+              </p>
+              <h2 className="figma-heading max-w-3xl text-4xl leading-[1.08] text-black sm:text-6xl">
+                연수는 다섯가지 방식으로 진행됩니다.
+              </h2>
+            </div>
+          </div>
+
+          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+            {programs.map((program) => (
+              <article key={program.title} className={`${program.color} grid min-h-[220px] grid-rows-[88px_1fr] rounded-lg p-6`}>
+                <h3 className="figma-copy whitespace-pre-line text-2xl font-bold leading-tight text-black">{program.title}</h3>
+                <p className="figma-copy text-base font-medium text-black">{program.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="ga-visit" className="scroll-mt-20 py-20 sm:py-24">
+        <div className="mx-auto w-[calc(100vw-40px)] max-w-7xl px-0 sm:w-auto sm:px-8">
+          <div className="min-w-0 overflow-hidden rounded-[24px] bg-[#1f1d3d] px-7 py-10 text-white sm:px-12 lg:px-16 lg:py-16">
+            <div className="grid gap-12 lg:grid-cols-[1fr_420px] lg:items-start">
+              <div>
+                <h2 className="figma-heading max-w-3xl text-5xl leading-[1.08] text-white sm:text-7xl lg:text-8xl">
+                  찾아가는 연수
+                </h2>
+                <p className="figma-copy mt-10 max-w-3xl text-2xl font-semibold leading-[1.45] text-white sm:text-3xl">
+                  전국 초·중·고등학교 교원을 대상으로 Gemini 활용 교원 연수를
+                  신청 학교에 방문해 진행합니다.
+                </p>
+              </div>
+
+              <div className="rounded-lg bg-white p-6 text-black">
+                {[
+                  ['대상', '전국 초·중·고등학교 교원'],
+                  ['신청', '접수 예정'],
+                  ['비용', '무료 (추가 연수 시 비용 별도)'],
+                  ['장소', '신청 학교 방문 진행'],
+                  ['내용', 'Gemini 활용 교원 연수'],
+                ].map(([label, value]) => (
+                  <div key={label} className="flex gap-6 border-b border-[#e6e6e6] py-4 first:pt-0">
+                    <span className="w-14 shrink-0 font-mono text-xs uppercase text-black">
+                      {label}
+                    </span>
+                    <span className="figma-copy min-w-0 text-base font-medium text-black">{value}</span>
+                  </div>
+                ))}
+                <span className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-black px-6 py-3 text-base font-medium text-white">
+                  접수예정
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="ga-apply" className="scroll-mt-20 py-20 sm:py-24">
+        <div className="mx-auto w-[calc(100vw-40px)] max-w-7xl px-0 sm:w-auto sm:px-8">
+          <div className="mb-8">
+            <div>
+              <p className="mb-5 font-mono text-sm uppercase text-black">
+                Webinar
+              </p>
+              <h2 className="figma-heading text-3xl leading-[1.08] text-black sm:text-5xl">
+                Gemini Academy 웨비나
+              </h2>
+            </div>
+          </div>
 
           <TrainingSchedule />
         </div>
       </section>
 
-      <section id="contact" className="relative py-20 scroll-mt-20 bg-gradient-to-br from-[#1A237E] via-[#4285F4] to-[#A855F7] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl lg:text-5xl font-bold text-center mb-4">
-            문의
-          </h2>
-          <p className="text-center text-white/70 mb-2">
-            궁금한 점이 있으시면 언제든 문의해 주세요.
-          </p>
-          <p className="text-center text-white/50 text-sm mb-12">
-            운영기관 JA Korea
-          </p>
-
-          <div className="flex flex-col md:flex-row items-stretch justify-center gap-6 max-w-3xl mx-auto">
-            {/* Email */}
-            <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">✉️</span>
-              </div>
-              <p className="text-sm text-white mb-1">이메일</p>
-              <a href="mailto:gfe@jakorea.org" className="text-lg font-semibold text-white hover:underline">
-                gfe@jakorea.org
-              </a>
+      <section id="contact" className="scroll-mt-20 border-t border-[#e6e6e6] bg-white py-20 sm:py-24">
+        <div className="mx-auto w-[calc(100vw-40px)] max-w-7xl px-0 sm:w-auto sm:px-8">
+          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.1fr]">
+            <div>
+              <p className="mb-5 font-mono text-sm uppercase text-black">
+                Contact
+              </p>
+              <h2 className="figma-heading text-4xl leading-[1.08] text-black sm:text-6xl">
+                궁금한 점이 있으시면 언제든 문의해 주세요.
+              </h2>
+              <p className="figma-copy mt-6 text-lg font-medium text-black">운영기관 JA Korea</p>
             </div>
 
-            {/* 송예찬 매니저 */}
-            <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📞</span>
-              </div>
-              <p className="text-sm text-white mb-1">송예찬 매니저</p>
-              <a href="tel:02-761-6001" className="text-lg font-semibold text-white hover:underline">
-                02-761-6001
-              </a>
-            </div>
+            <div className="grid gap-px overflow-hidden rounded-lg border border-[#e6e6e6] bg-[#e6e6e6] md:grid-cols-3">
+              {contactItems.map((item) => {
+                const Icon = item.icon;
 
-            {/* 정미래 매니저 */}
-            <div className="flex-1 bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center border border-white/20">
-              <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                <span className="text-2xl">📞</span>
-              </div>
-              <p className="text-sm text-white mb-1">정미래 매니저</p>
-              <a href="tel:02-6952-9720" className="text-lg font-semibold text-white hover:underline">
-                02-6952-9720
-              </a>
+                return (
+                  <div
+                    key={item.value}
+                    className="flex min-h-[126px] flex-col justify-between bg-white p-5 text-black transition-colors hover:bg-[#f7f7f5]"
+                  >
+                    <Icon className="h-5 w-5 text-black" />
+                    <span>
+                      <span className="block font-mono text-xs uppercase text-black">
+                        {item.label}
+                      </span>
+                      <span className="mt-2 block whitespace-nowrap text-xl font-semibold text-black">
+                        {item.value}
+                      </span>
+                    </span>
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
