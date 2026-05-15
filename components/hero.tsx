@@ -64,7 +64,7 @@ export function Hero() {
               alt="Google for Education"
               width={200}
               height={50}
-              className="h-8 sm:h-12 w-auto"
+              className="h-10 sm:h-16 w-auto"
             />
           </div>
 
