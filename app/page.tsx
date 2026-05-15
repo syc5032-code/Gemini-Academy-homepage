@@ -49,7 +49,7 @@ const history = [
   },
   {
     year: '2026',
-    title: '교육 대상 및 생태계 확장',
+    title: '교육 대상 및\n생태계 확장',
     details: ['대학생 연수 확장', 'Gemini 활용의 전방위적 확산 추진'],
   },
 ];
@@ -224,14 +224,14 @@ export default function Home() {
                   <p className="mb-5 inline-flex rounded-full bg-black px-4 py-2 font-mono text-xs uppercase text-white">
                     {item.year}
                   </p>
-                  <h3 className="figma-copy mb-5 text-2xl font-bold leading-tight text-black">
+                  <h3 className="figma-copy mb-5 whitespace-pre-line text-2xl font-bold leading-tight text-black">
                     {item.title}
                   </h3>
                   <ul className="space-y-3">
                     {item.details.map((detail) => (
-                      <li key={detail} className="figma-copy flex min-w-0 gap-3 text-base font-medium text-black">
-                        <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-black" />
-                        {detail}
+                      <li key={detail} className="figma-copy grid min-w-0 grid-cols-[10px_1fr] gap-3 text-base font-medium text-black">
+                        <span className="mt-2 h-1.5 w-1.5 rounded-full bg-black" />
+                        <span className="min-w-0">{detail}</span>
                       </li>
                     ))}
                   </ul>
