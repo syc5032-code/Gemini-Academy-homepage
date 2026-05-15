@@ -7,6 +7,7 @@ import {
   Sparkles,
   Users,
 } from 'lucide-react';
+import Image from 'next/image';
 import { GNB } from '@/components/gnb';
 import { Hero } from '@/components/hero';
 import { TrainingSchedule } from '@/components/training-schedule';
@@ -153,18 +154,22 @@ export default function Home() {
 
       <section id="ga-intro" className="scroll-mt-20 py-20 sm:py-24">
         <div className="mx-auto grid w-[calc(100vw-40px)] max-w-7xl gap-12 px-0 sm:w-auto sm:px-8 lg:grid-cols-[0.95fr_1.05fr] lg:items-start">
-          <div>
+          <div className="lg:-mt-10">
             <p className="mb-5 font-mono text-sm uppercase text-black">
               What is Gemini Academy
             </p>
             <h2 className="figma-heading text-4xl leading-[1.08] text-black sm:text-6xl lg:text-7xl">
               Gemini Academy란?
             </h2>
-            <div className="mt-6 aspect-[2/1] w-full overflow-hidden rounded-lg border border-[#e6e6e6] bg-[#f7f7f5]">
-              <img
+            <div className="relative mt-6 aspect-[16/9] w-full overflow-hidden rounded-lg border border-[#e6e6e6] bg-[#f7f7f5]">
+              <Image
                 src="/logos/DSC08714.jpg"
                 alt="Gemini Academy 교육 자료가 표시된 강의장 화면"
-                className="h-full w-full object-cover"
+                fill
+                priority
+                quality={92}
+                sizes="(min-width: 1024px) 608px, calc(100vw - 40px)"
+                className="object-cover"
               />
             </div>
           </div>
@@ -358,7 +363,7 @@ export default function Home() {
                 {[
                   ['대상', '전국 초·중·고등학교 교원'],
                   ['신청', '접수 예정'],
-                  ['비용', '별도 운영 조건에 따른 별도 협의'],
+                  ['비용', '운영 조건에 따른 별도 협의'],
                   ['장소', '신청 학교 방문 진행'],
                   ['내용', 'Gemini 활용 교원 연수'],
                 ].map(([label, value]) => (
