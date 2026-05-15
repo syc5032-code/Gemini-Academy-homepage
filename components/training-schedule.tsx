@@ -30,6 +30,9 @@ const schedules: Record<string, Training[]> = {
       closesAt: '2026-05-28T17:00:00+09:00',
     },
     { month: '6월', topic: 'Deep Research\n& Canvas', status: 'pending' },
+    { month: '7월', topic: 'AI Studio 활용한\n바이브코딩', status: 'pending' },
+    { month: '8월', topic: 'Antigravity 활용한\n바이브코딩(1)', status: 'pending' },
+    { month: '9월', topic: 'Antigravity 활용한\n바이브코딩(2)', status: 'pending' },
   ],
 };
 
