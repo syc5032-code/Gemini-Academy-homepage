@@ -3,16 +3,16 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gemini-academy.vercel.app"),
-  title: "Gemini Academy | JA Korea",
+  title: "제미나이 아카데미 | JA Korea",
   description: "AI 교육을 위한 제미나이 아카데미",
   alternates: {
     canonical: "/",
   },
   openGraph: {
-    title: "Gemini Academy | JA Korea",
+    title: "제미나이 아카데미 | JA Korea",
     description: "AI 교육을 위한 제미나이 아카데미",
     url: "/",
-    siteName: "Gemini Academy | JA Korea",
+    siteName: "제미나이 아카데미 | JA Korea",
     images: [
       {
         url: "/og-ja-korea.png",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Gemini Academy | JA Korea",
+    title: "제미나이 아카데미 | JA Korea",
     description: "AI 교육을 위한 제미나이 아카데미",
     images: ["/og-ja-korea.png"],
   },
