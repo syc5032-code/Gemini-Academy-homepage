@@ -160,7 +160,7 @@ export default function Home() {
             <h2 className="figma-heading text-4xl leading-[1.08] text-black sm:text-6xl lg:text-7xl">
               Gemini Academy란?
             </h2>
-            <div className="mt-8 aspect-[16/9] w-full overflow-hidden rounded-lg border border-[#e6e6e6] bg-[#f7f7f5]">
+            <div className="mt-6 aspect-[2/1] w-full overflow-hidden rounded-lg border border-[#e6e6e6] bg-[#f7f7f5]">
               <img
                 src="/logos/DSC08714.jpg"
                 alt="Gemini Academy 교육 자료가 표시된 강의장 화면"
@@ -358,15 +358,15 @@ export default function Home() {
                 {[
                   ['대상', '전국 초·중·고등학교 교원'],
                   ['신청', '접수 예정'],
-                  ['비용', '무료 (추가 연수 시 비용 별도)'],
+                  ['비용', '별도 운영 조건에 따른 별도 협의'],
                   ['장소', '신청 학교 방문 진행'],
                   ['내용', 'Gemini 활용 교원 연수'],
                 ].map(([label, value]) => (
-                  <div key={label} className="flex gap-6 border-b border-[#e6e6e6] py-4 first:pt-0">
-                    <span className="w-14 shrink-0 font-mono text-xs uppercase text-black">
+                  <div key={label} className="flex min-h-[66px] items-center gap-6 border-b border-[#e6e6e6] py-4 first:pt-0">
+                    <span className="flex w-14 shrink-0 items-center font-mono text-xs uppercase text-black">
                       {label}
                     </span>
-                    <span className="figma-copy min-w-0 text-base font-medium text-black">{value}</span>
+                    <span className="figma-copy flex min-w-0 items-center text-base font-medium leading-snug text-black">{value}</span>
                   </div>
                 ))}
                 <span className="mt-6 inline-flex min-h-11 w-full items-center justify-center rounded-full bg-black px-6 py-3 text-base font-medium text-white">
