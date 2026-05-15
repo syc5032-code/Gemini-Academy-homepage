@@ -160,6 +160,13 @@ export default function Home() {
             <h2 className="figma-heading text-4xl leading-[1.08] text-black sm:text-6xl lg:text-7xl">
               Gemini Academy란?
             </h2>
+            <div className="mt-8 aspect-[16/9] w-full overflow-hidden rounded-lg border border-[#e6e6e6] bg-[#f7f7f5]">
+              <img
+                src="/logos/DSC08714.jpg"
+                alt="Gemini Academy 교육 자료가 표시된 강의장 화면"
+                className="h-full w-full object-cover"
+              />
+            </div>
           </div>
 
           <div className="space-y-8">
